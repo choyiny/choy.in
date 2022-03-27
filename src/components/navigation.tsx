@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {Flex, HStack, IconButton, Link, useColorMode, Text} from "@chakra-ui/react";
 import {BsGithub, BsLinkedin, MdOutlineBrightness4, MdOutlineBrightness6} from "react-icons/all";
 import {DisplayContainer} from "./display-container";
@@ -6,10 +6,12 @@ import {DisplayContainer} from "./display-container";
 const Toggle = ({...rest}) => {
   const { colorMode, toggleColorMode } = useColorMode()
   // TODO(choyiny): remove workaround to default to dark mode
-  if (!localStorage.getItem('initial') && colorMode === 'light') {
-    setTimeout(toggleColorMode, 10)
-    localStorage.setItem('initial', '1')
-  }
+  useEffect(() => {
+    if (!localStorage.getItem('initial') && colorMode === 'light') {
+      setTimeout(toggleColorMode, 10)
+      localStorage.setItem('initial', '1')
+    }
+  })
   const isLight = colorMode === `light`
   return (
     <IconButton

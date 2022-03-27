@@ -12,7 +12,7 @@ const breakpoints = {
 
 const overrides = {
   initialColorMode: 'dark',
-  useSystemColorMode: true,
+  useSystemColorMode: false,
   breakpoints,
   components: {
     DisplayContainer,
