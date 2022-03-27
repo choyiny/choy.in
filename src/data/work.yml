@@ -1,0 +1,9 @@
+- work:
+  - name: PickEasy
+    description: PickEasy is an A.I. and social driven app that solves the greatest frustration of our generation - Where do we dine today?
+    link: https://pickeasy.ca
+    logo: pickeasy.svg
+  - name: Daily Deals
+    description: Portal for restaurants to offer discounted food items per day.
+    link: https://bogo.hollywood.cafe
+    logo:

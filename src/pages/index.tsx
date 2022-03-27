@@ -4,12 +4,17 @@ import {DisplayContainer} from "../components/display-container";
 import Hero from "../components/hero";
 import {Box, Divider, Flex, Grid, Link, Tag} from "@chakra-ui/react";
 import {LinkCard} from "../components/link-card";
-import {AiOutlineRight} from "react-icons/all";
+import {useProjects} from "../hooks/use-projects";
+import {useWork} from "../hooks/use-work";
+import SkipNav from "../components/skip-nav";
 
 // markup
 const IndexPage = () => {
+  const projects = useProjects()
+  const work = useWork()
   return (
     <Layout activePage={'index'}>
+      <SkipNav/>
       <DisplayContainer>
         <Hero/>
         <Divider/>
@@ -21,20 +26,21 @@ const IndexPage = () => {
             <Link display="none" href="/writing">Read all</Link>
           </Flex>
           <Grid templateColumns={[`repeat(1, 1fr)`, null, `2fr 1fr`]} gap={[4, null, 8]}>
-            <LinkCard
-              bgColor='blue.900'
-              projectName='PickEasy'
-              projectDescription='PickEasy is an A.I. and social driven app that solves the greatest frustration of our generation - Where do we dine today?'
-              projectLink='https://pickeasy.ca'
-            >
-            </LinkCard>
-            <LinkCard
-              bgColor='blue.800'
-              projectName='Daily Deals'
-              projectDescription='Portal for restaurants to offer discounted items per day.'
-              projectLink='https://bogo.hollywood.cafe'
-            >
-            </LinkCard>
+            {
+              work.map((project, index) => {
+                const color = ['blue.900', 'blue.800', 'blue.700', 'blue.600'][index]
+                return (
+                  <LinkCard
+                    key={'project' + index}
+                    bgColor={color}
+                    projectName={project.name}
+                    projectDescription={project.description}
+                    projectLink={project.link}
+                    projectLogo={project.logo}
+                  />
+                )
+              })
+            }
           </Grid>
         </Box>
         <Divider/>
@@ -46,24 +52,21 @@ const IndexPage = () => {
             <Link href="https://github.com/choyiny">See more</Link>
           </Flex>
           <Grid templateColumns={[`repeat(1, 1fr)`, null, `repeat(3, 1fr)`]} gap={[4, null, 8]}>
-            <LinkCard
-              bgColor='blue.700'
-              projectName='Reliable Blog'
-              projectDescription="A simple blog app to demonstrate Google's Site Reliability Engineering principles."
-              projectLink='https://github.com/choyiny/reliable_blog'
-            />
-            <LinkCard
-              bgColor='blue.600'
-              projectName='Mobile Wizard'
-              projectDescription='Nintendo Switch inspired two-player sword (phone) wielding game.'
-              projectLink='https://github.com/choyiny/mobile-wizard'
-            />
-            <LinkCard
-              bgColor='blue.500'
-              projectName='Flask API Starter'
-              projectDescription='Boilerplate for building REST APIs in Flask with Blueprints and MongoDB.'
-              projectLink='https://github.com/choyiny/flask-api-starter'
-            />
+            {
+              projects.map((project, index) => {
+                const color = ['blue.700', 'blue.600', 'blue.500'][index]
+                return (
+                  <LinkCard
+                    key={'project' + index}
+                    bgColor={color}
+                    projectName={project.name}
+                    projectDescription={project.description}
+                    projectLink={project.link}
+                    projectLogo={project.logo}
+                  />
+                )
+              })
+            }
           </Grid>
         </Box>
       </DisplayContainer>

@@ -8,7 +8,7 @@ const Toggle = ({...rest}) => {
   // TODO(choyiny): remove workaround to default to dark mode
   useEffect(() => {
     if (!localStorage.getItem('initial') && colorMode === 'light') {
-      setTimeout(toggleColorMode, 10)
+      setTimeout(toggleColorMode, 1)
       localStorage.setItem('initial', '1')
     }
   })
@@ -32,7 +32,9 @@ export default function Navigation() {
   return (
     <DisplayContainer variant={'navigation'}>
       <Flex flexDirection={[`column`, `row`]} textAlign="center" alignItems="center" justifyContent="space-between" my={5}>
-        <Text fontWeight='bold' fontSize='xl'>Cho Yin Yong</Text>
+        <Text fontWeight='bold' fontSize='xl'>
+          <Link _hover={{ textDecor: 'none' }} textDecoration='none' href='/'>Cho Yin Yong</Link>
+        </Text>
         <HStack spacing={[`2`, `4`]}>
           <nav aria-label="Navigation">
             <HStack as="ul" listStyleType="none" spacing={[`2`, `6`]}>

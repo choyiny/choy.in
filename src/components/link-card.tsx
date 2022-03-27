@@ -1,11 +1,13 @@
 import * as React from "react"
-import {LinkBox, LinkOverlay, Text} from "@chakra-ui/react"
+import {Image, LinkBox, LinkOverlay, Text} from "@chakra-ui/react"
 import {transforms} from "../constants/motion";
+
 
 export const LinkCard = ({
   projectName,
   projectDescription,
   projectLink,
+  projectLogo,
   ...rest
 }) => {
   return (
@@ -26,7 +28,11 @@ export const LinkCard = ({
       {...rest}
     >
       <LinkOverlay href={projectLink} mb='1em'>
-        <Text fontWeight='bold' fontSize='2xl'>{projectName}</Text>
+        {
+          projectLogo
+          ? <Image height='36px' src={projectLogo}/>
+          : <Text fontWeight='bold' fontSize='2xl'>{projectName}</Text>
+        }
       </LinkOverlay>
       <Text fontSize='md'>
         {projectDescription}

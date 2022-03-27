@@ -8,7 +8,7 @@ import Me from "../../static/me.jpeg";
 export default function Hero() {
   return (
     <DisplayContainer variant={'hero'}>
-      <Flex pt='7em' mb='5em' flexWrap='wrap' flexDirection={{sm: 'column-reverse', md: 'row'}} align={{sm: 'center'}}>
+      <Flex mb='5em' flexWrap='wrap' flexDirection={{sm: 'column-reverse', md: 'row'}} align={{sm: 'center'}}>
         <Stack flex={9}>
           <Text
             fontSize='4xl'
