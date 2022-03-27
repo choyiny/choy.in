@@ -1,11 +1,15 @@
 import React from "react"
 import {Flex, HStack, IconButton, Link, useColorMode, Text} from "@chakra-ui/react";
-import {useNavigation} from "../hooks/use-navigation";
 import {BsGithub, BsLinkedin, MdOutlineBrightness4, MdOutlineBrightness6} from "react-icons/all";
 import {DisplayContainer} from "./display-container";
 
-const Toggle = () => {
+const Toggle = ({...rest}) => {
   const { colorMode, toggleColorMode } = useColorMode()
+  // TODO(choyiny): remove workaround to default to dark mode
+  if (!localStorage.getItem('initial') && colorMode === 'light') {
+    setTimeout(toggleColorMode, 10)
+    localStorage.setItem('initial', '1')
+  }
   const isLight = colorMode === `light`
   return (
     <IconButton
@@ -15,6 +19,7 @@ const Toggle = () => {
       _hover={{ color: isLight ? `black` : `white` }}
       icon={isLight ? <MdOutlineBrightness4 fontSize="1.25rem"/> : <MdOutlineBrightness6 fontSize="1.25rem" />}
       onClick={toggleColorMode}
+      {...rest}
     />
   )
 }
@@ -48,7 +53,7 @@ export default function Navigation() {
               </li>
             </HStack>
           </nav>
-          <Toggle />
+          <Toggle display='none'/>
         </HStack>
       </Flex>
     </DisplayContainer>

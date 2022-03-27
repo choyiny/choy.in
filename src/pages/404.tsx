@@ -1,14 +1,13 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import Layout from "../components/layout";
+import {useEffect} from "react";
+import {navigate} from "gatsby";
 
 // markup
 const NotFoundPage = () => {
-  return (
-    <Layout activePage={'404'}>
-      <h1>404 Not Found</h1>
-    </Layout>
-  )
+  useEffect(() => {
+    navigate('/');
+  }, []);
+  return null;
 }
 
 export default NotFoundPage

@@ -1,20 +1,20 @@
 import * as React from "react"
-import {LinkBox} from "@chakra-ui/react"
+import {LinkBox, LinkOverlay, Text} from "@chakra-ui/react"
 import {transforms} from "../constants/motion";
 
 export const LinkCard = ({
-  children,
+  projectName,
+  projectDescription,
+  projectLink,
   ...rest
 }) => {
   return (
     <LinkBox
-      p={4}
+      p={6}
       borderRadius="lg"
-      height={[`150px`, null, null, `200px`]}
       boxShadow="lg"
       display="flex"
       flexDirection="column"
-      alignItems="flex-end"
       color="white"
       fontSize={[`lg`, null, `md`, `1.125rem`, `1.3125rem`]}
       sx={{ textShadow: `0 1px 2px rgba(0, 0, 0, 0.5)` }}
@@ -25,7 +25,12 @@ export const LinkCard = ({
       }
       {...rest}
     >
-      {children}
+      <LinkOverlay href={projectLink} mb='1em'>
+        <Text fontWeight='bold' fontSize='2xl'>{projectName}</Text>
+      </LinkOverlay>
+      <Text fontSize='md'>
+        {projectDescription}
+      </Text>
     </LinkBox>
   )
 }
