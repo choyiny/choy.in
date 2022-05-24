@@ -33,8 +33,7 @@ export default function Hero() {
             I'm part of the team that enabled over 6 million vaccination appointments to be made across Ontario through regional and hospital partners.
             I am an entrepreneur at heart - I have won the <Link isExternal={true} textDecoration='underline' href='https://entrepreneurs.utoronto.ca/2020-lo-family-social-venture-fund-award-winners/'>UofT Lo Family Social Venture Fund</Link> with <Link isExternal={true} textDecoration='underline' href='https://pickeasy.ca'>PickEasy</Link> and
             helped modernize restaurants with digital menus amid the pandemic.
-            I also love teaching, and currently lead Verto's education initiative - NinjaOps, which aims to teach
-            non-developers web development fundamentals.
+            I also love teaching, and currently teach <Link isExternal={true} textDecoration='underline' href='https://cscc09.com'>Programming on the Web</Link> at the University of Toronto, a third-year computer science course.
           </Text>
         </Stack>
         <Spacer flex={1}/>
