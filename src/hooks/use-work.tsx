@@ -1,11 +1,10 @@
-import {graphql, useStaticQuery} from "gatsby";
-
+import { graphql, useStaticQuery } from "gatsby";
 
 type Props = {
   workYaml: {
-    work: Project[]
-  }
-}
+    work: Project[];
+  };
+};
 
 export const useWork = () => {
   const data = useStaticQuery<Props>(graphql`
@@ -19,6 +18,6 @@ export const useWork = () => {
         }
       }
     }
-  `)
-  return data.workYaml.work
-}
+  `);
+  return data.workYaml.work;
+};

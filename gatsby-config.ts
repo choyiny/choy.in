@@ -1,5 +1,5 @@
-import {GatsbyConfig} from "gatsby";
-import {site} from './src/constants/meta'
+import { GatsbyConfig } from "gatsby";
+import { site } from "./src/constants/meta";
 
 const gatsbyConfig: GatsbyConfig = {
   siteMetadata: {
@@ -13,13 +13,12 @@ const gatsbyConfig: GatsbyConfig = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: "gatsby-plugin-manifest",
       options: {
-        "icon": "static/icon.png",
-        "title": site.titleDefault,
-      }
+        icon: "static/icon.png",
+        title: site.titleDefault,
+      },
     },
-    "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     `gatsby-transformer-yaml`,
@@ -30,26 +29,47 @@ const gatsbyConfig: GatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        "name": "images",
-        "path": "./static"
+        path: `./content/braindumps`,
+        name: `braindumps`,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        "name": "pages",
-        "path": "./src/pages/"
+        extensions: [`.md`, `.mdx`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
       },
     },
     {
-      resolve: '@chakra-ui/gatsby-plugin',
+      resolve: "gatsby-source-filesystem",
       options: {
-        resetCSS: true,
-        isUsingColorMode: false,
+        name: "images",
+        path: "./static",
       },
     },
-  ]
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "pages",
+        path: "./src/pages/",
+      },
+    },
+    {
+      resolve: "@chakra-ui/gatsby-plugin",
+      options: {
+        resetCSS: false,
+        isUsingColorMode: true,
+      },
+    },
+  ],
 };
-export default gatsbyConfig
+export default gatsbyConfig;

@@ -3,4 +3,4 @@ type Project = {
   description: string;
   link: string;
   logo: string;
-}
+};

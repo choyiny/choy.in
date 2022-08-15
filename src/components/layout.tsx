@@ -1,16 +1,17 @@
-import React from "react"
-import Header from "./header";
-import {Footer} from "./footer";
-import {DisplayContainer} from "./display-container";
-import {ChakraProvider} from "@chakra-ui/react";
+import React from "react";
+import { Footer } from "./footer";
+import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../theme";
+import Seo from "./seo";
+import Navigation from "./navigation";
 
 export default function Layout({ children, activePage }) {
   return (
     <ChakraProvider theme={theme}>
-      <Header activePage={activePage}/>
-      <main>{ children }</main>
-      <Footer/>
+      <Seo />
+      <Navigation />
+      <main>{children}</main>
+      <Footer />
     </ChakraProvider>
-  )
+  );
 }

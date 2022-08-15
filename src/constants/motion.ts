@@ -7,4 +7,4 @@ export const transforms = {
     transform: `translate3d(0, -8px, 0)`,
     boxShadow: `0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)`,
   },
-}
+};
