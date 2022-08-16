@@ -4,10 +4,11 @@ import Layout from "../components/layout";
 import { MDXProvider } from "@mdx-js/react";
 import { DisplayContainer } from "../components/display-container";
 import { graphql } from "gatsby";
-import { Box, Divider, Heading, Text } from "@chakra-ui/react";
+import { Box, Divider, Heading, Image, Text } from "@chakra-ui/react";
 import Seo from "../components/seo";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { components } from "../components/mdx";
+import Giscus from "@giscus/react";
 
 const BraindumpsTemplate = ({ data, location }) => {
   const post = data.mdx;
@@ -16,6 +17,31 @@ const BraindumpsTemplate = ({ data, location }) => {
       <Seo title={post.frontmatter.title}>
         <meta name="article:published_time" content={post.seoDate} />
         <meta name="article:modified_time" content={post.seoLastUpdated} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              headline: post.frontmatter.title,
+              image: post.frontmatter.coverImageUrl,
+              url: post.frontmatter.slug,
+              datePublished: post.seoDate,
+              dateCreated: post.seoDate,
+              dateModified: post.seoLastUpdated,
+              description: post.frontmatter.description,
+              author: {
+                "@type": "Person",
+                name: "Cho Yin Yong",
+                url: "https://choy.in",
+              },
+              mainEntityOfPage: {
+                "@type": "WebPage",
+                "@id": "https://choy.in/braindumps",
+              },
+            }),
+          }}
+        />
       </Seo>
       <SkipNav />
       <DisplayContainer>
@@ -29,10 +55,26 @@ const BraindumpsTemplate = ({ data, location }) => {
             {post.frontmatter.updatedDate}
           </Text>
         </Box>
+        <Image src={post.frontmatter.coverImageUrl}></Image>
         <MDXProvider components={components}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
         <hr />
+        <br />
+        <Giscus
+          id="comments"
+          repo="choyiny/choy.in"
+          repoId="R_kgDOHCPsjA"
+          category="Braindump Discussions"
+          categoryId="DIC_kwDOHCPsjM4CQ3Ik"
+          mapping="title"
+          reactionsEnabled="1"
+          emitMetadata="0"
+          inputPosition="top"
+          theme="preferred_color_scheme"
+          lang="en"
+          loading="lazy"
+        />
       </DisplayContainer>
     </Layout>
   );
@@ -62,6 +104,7 @@ export const pageQuery = graphql`
         seoDate: date
         updatedDate(formatString: "MMMM DD, YYYY")
         description
+        coverImageUrl
       }
     }
     previous: mdx(id: { eq: $previousPostId }) {
