@@ -47,11 +47,11 @@ const IndexPage = ({ data: { dumps } }) => {
               as={GatsbyLink}
               to={`/braindumps/${dumps.nodes[0].frontmatter.slug}`}
             >
-              <Heading size="lg" mb="0.5em">{dumps.nodes[0].frontmatter.title}</Heading>
+              <Heading size="lg" mb="0.5em">
+                {dumps.nodes[0].frontmatter.title}
+              </Heading>
             </LinkOverlay>
-            <Text>
-              {dumps.nodes[0].frontmatter.description}...
-            </Text>
+            <Text>{dumps.nodes[0].frontmatter.description}...</Text>
           </LinkBox>
         </Box>
         <Divider />
