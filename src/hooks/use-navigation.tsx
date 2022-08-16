@@ -1,13 +1,13 @@
-import {graphql, useStaticQuery} from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
 type Props = {
   navigationYaml: {
     pages: {
-      name: string
-      link: string
-    }[]
-  }
-}
+      name: string;
+      link: string;
+    }[];
+  };
+};
 
 export const useNavigation = () => {
   const data = useStaticQuery<Props>(graphql`
@@ -19,6 +19,6 @@ export const useNavigation = () => {
         }
       }
     }
-  `)
-  return data.navigationYaml.pages
-}
+  `);
+  return data.navigationYaml.pages;
+};

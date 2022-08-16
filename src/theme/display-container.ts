@@ -1,4 +1,4 @@
-import { mode } from "@chakra-ui/theme-tools"
+import { mode } from "@chakra-ui/theme-tools";
 
 const DisplayContainer = {
   parts: [`outer`, `inner`],
@@ -15,15 +15,15 @@ const DisplayContainer = {
       },
     },
     hero: ({ colorMode }) => {
-      const isDarkMode = colorMode === `dark`
-      const topColor = `var(--chakra-colors-bg)`
-      const bottomColor = isDarkMode ? `#0b111f` : `#0b111f`
+      const isDarkMode = colorMode === `dark`;
+      const topColor = `var(--chakra-colors-bg)`;
+      const bottomColor = isDarkMode ? `#0b111f` : `#0b111f`;
 
       return {
         outer: {
           bg: `linear-gradient(0deg, ${bottomColor} 0%, ${topColor} 100%)`,
         },
-      }
+      };
     },
     navigation: (props) => ({
       outer: {
@@ -40,6 +40,6 @@ const DisplayContainer = {
       },
     }),
   },
-}
+};
 
-export default DisplayContainer
+export default DisplayContainer;
