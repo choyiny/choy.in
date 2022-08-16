@@ -8,6 +8,8 @@ import { Box, Divider, Heading, Text } from "@chakra-ui/react";
 import Seo from "../components/seo";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { components } from "../components/mdx";
+import Giscus from '@giscus/react';
+
 
 const BraindumpsTemplate = ({ data, location }) => {
   const post = data.mdx;
@@ -33,6 +35,21 @@ const BraindumpsTemplate = ({ data, location }) => {
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
         <hr />
+        <br />
+        <Giscus
+          id="comments"
+          repo="choyiny/choy.in"
+          repoId="R_kgDOHCPsjA"
+          category="Braindump Discussions"
+          categoryId="DIC_kwDOHCPsjM4CQ3Ik"
+          mapping="title"
+          reactionsEnabled="1"
+          emitMetadata="0"
+          inputPosition="top"
+          theme="preferred_color_scheme"
+          lang="en"
+          loading="lazy"
+        />
       </DisplayContainer>
     </Layout>
   );

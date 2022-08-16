@@ -20,6 +20,7 @@
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
+    "@giscus/react": "^2.2.0",
     "@mdx-js/mdx": "v1",
     "@mdx-js/react": "v1",
     "framer-motion": "^6.2.8",
