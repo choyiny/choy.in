@@ -43,14 +43,23 @@ const IndexPage = ({ data: { dumps } }) => {
             <Link href="/braindumps">Read all</Link>
           </Flex>
           <LinkBox>
-            <LinkOverlay
-              as={GatsbyLink}
-              to={`/braindumps/${dumps.nodes[0].frontmatter.slug}`}
-            >
-              <Heading size="lg" mb="0.5em">
-                {dumps.nodes[0].frontmatter.title}
-              </Heading>
-            </LinkOverlay>
+            {dumps.nodes[0].frontmatter.externalBlogUrl ? (
+              <LinkOverlay href={dumps.nodes[0].frontmatter.externalBlogUrl}>
+                <Heading size="lg" mb="0.5em">
+                  {dumps.nodes[0].frontmatter.title}
+                </Heading>
+              </LinkOverlay>
+            ) : (
+              <LinkOverlay
+                as={GatsbyLink}
+                to={`/braindumps/${dumps.nodes[0].frontmatter.slug}`}
+              >
+                <Heading size="lg" mb="0.5em">
+                  {dumps.nodes[0].frontmatter.title}
+                </Heading>
+              </LinkOverlay>
+            )}
+
             <Text>{dumps.nodes[0].frontmatter.description}...</Text>
           </LinkBox>
         </Box>
@@ -130,13 +139,17 @@ export default IndexPage;
 
 export const query = graphql`
   {
-    dumps: allMdx(limit: 1) {
+    dumps: allMdx(
+      limit: 1
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       nodes {
         frontmatter {
           title
           tags
           description
           slug
+          externalBlogUrl
         }
       }
     }

@@ -42,9 +42,15 @@ const BraindumpsPage = ({ data: { dumps } }) => {
                   {dump.frontmatter.date}
                 </Box>
                 <Heading size="md" my="2">
-                  <LinkOverlay as={GatsbyLink} to={dump.frontmatter.slug}>
-                    {dump.frontmatter.title}
-                  </LinkOverlay>
+                  {dump.frontmatter.externalBlogUrl ? (
+                    <LinkOverlay href={dump.frontmatter.externalBlogUrl}>
+                      {dump.frontmatter.title}
+                    </LinkOverlay>
+                  ) : (
+                    <LinkOverlay as={GatsbyLink} to={dump.frontmatter.slug}>
+                      {dump.frontmatter.title}
+                    </LinkOverlay>
+                  )}
                 </Heading>
               </LinkBox>
             );
@@ -72,6 +78,7 @@ export const query = graphql`
           slug
           date(formatString: "MMMM DD, YYYY")
           updatedDate(formatString: "MMMM DD, YYYY")
+          externalBlogUrl
         }
       }
     }
