@@ -23,7 +23,6 @@ export default function Seo({ title, description, children }) {
       <html lang="en-CA" />
       <meta name="description" content={siteMetadata.description} />
       <link rel="icon" type="image/svg+xml" href={faviconSrc} />
-      <meta property="og:title" content={siteMetadata.titleDefault} />
       <meta property="og:title" content={seo.title} />
       <meta property="og:url" content={href} />
       <meta property="og:description" content={seo.description} />
