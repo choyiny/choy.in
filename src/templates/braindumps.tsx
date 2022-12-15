@@ -14,34 +14,36 @@ const BraindumpsTemplate = ({ data, location }) => {
   const post = data.mdx;
   return (
     <Layout activePage={"index"}>
-      <Seo title={post.frontmatter.title}>
+      <Seo
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+      >
         <meta name="article:published_time" content={post.seoDate} />
         <meta name="article:modified_time" content={post.seoLastUpdated} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              headline: post.frontmatter.title,
-              image: post.frontmatter.coverImageUrl,
-              url: post.frontmatter.slug,
-              datePublished: post.seoDate,
-              dateCreated: post.seoDate,
-              dateModified: post.seoLastUpdated,
-              description: post.frontmatter.description,
-              author: {
-                "@type": "Person",
-                name: "Cho Yin Yong",
-                url: "https://choy.in",
-              },
-              mainEntityOfPage: {
-                "@type": "WebPage",
-                "@id": "https://choy.in/braindumps",
-              },
-            }),
-          }}
-        />
+        <meta name="og:image" content={post.frontmatter.coverImageUrl} />
+        <meta name="twitter:image" content={post.frontmatter.coverImageUrl} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.frontmatter.title,
+            image: post.frontmatter.coverImageUrl,
+            url: post.frontmatter.slug,
+            datePublished: post.seoDate,
+            dateCreated: post.seoDate,
+            dateModified: post.seoLastUpdated,
+            description: post.frontmatter.description,
+            author: {
+              "@type": "Person",
+              name: "Cho Yin Yong",
+              url: "https://choy.in",
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": "https://choy.in/braindumps",
+            },
+          })}
+        </script>
       </Seo>
       <SkipNav />
       <DisplayContainer>
