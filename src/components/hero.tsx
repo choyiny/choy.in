@@ -39,35 +39,37 @@ export default function Hero() {
             .<br />
           </Text>
           <Text textAlign="justify">
-            I'm part of the team that enabled 6M+ vaccination appointments
-            across Ontario, consolidated Toronto's virtual emergency department,
-            and is passionate to build an awesome digital twin orchestration
-            platform. I am an entrepreneur at heart - I have won the{" "}
+            I lead innovation with a vision-driven development approach. With 6
+            years of growing with a Healthcare AI startup and co-founding an{" "}
             <Link
               isExternal={true}
               textDecoration="underline"
               href="https://entrepreneurs.utoronto.ca/2020-lo-family-social-venture-fund-award-winners/"
             >
-              UofT Lo Family Social Venture Fund
-            </Link>{" "}
-            with{" "}
+              award-winning side hustle
+            </Link>
+            , my unique experience of working on timeline-sensitive projects and
+            leading province-wide enterprise deployments in the healthcare
+            domain has allowed me to master the end-to-end workflow of running
+            software projects. I am also a lecturer at the University of Toronto
+            teaching several upper-year undergraduate computer science courses,
+            ranging from{" "}
             <Link
               isExternal={true}
               textDecoration="underline"
-              href="https://pickeasy.ca"
+              href="https://cscd01.com"
             >
-              PickEasy
+              enterprise software architecture
             </Link>{" "}
-            and helped modernize restaurants with digital menus amid the
-            pandemic. I also love teaching, and currently teach{" "}
+            to{" "}
             <Link
               isExternal={true}
               textDecoration="underline"
               href="https://cscc09.com"
             >
-              Programming on the Web
-            </Link>{" "}
-            at the University of Toronto, a third-year computer science course.
+              full-stack web development
+            </Link>
+            .
           </Text>
         </Stack>
         <Spacer flex={1} />

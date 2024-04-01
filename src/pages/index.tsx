@@ -23,7 +23,7 @@ import { graphql, Link as GatsbyLink } from "gatsby";
 // markup
 const IndexPage = ({ data: { dumps } }) => {
   const projects = useProjects();
-  const work = useWork();
+  const works = useWork();
   return (
     <Layout activePage={"index"}>
       <SkipNav />
@@ -64,39 +64,41 @@ const IndexPage = ({ data: { dumps } }) => {
           </LinkBox>
         </Box>
         <Divider />
-        <Box my="1em">
-          <Flex justifyContent="space-between" alignItems="center" my="1em">
-            <Tag
-              size="lg"
-              key="projects"
-              colorScheme="blue"
-              borderRadius="full"
-              px="1.5em"
+        {works.length > 0 && (
+          <Box my="1em">
+            <Flex justifyContent="space-between" alignItems="center" my="1em">
+              <Tag
+                size="lg"
+                key="projects"
+                colorScheme="blue"
+                borderRadius="full"
+                px="1.5em"
+              >
+                Featured Works
+              </Tag>
+            </Flex>
+            <Grid
+              templateColumns={[`repeat(1, 1fr)`, null, `2fr 1fr`]}
+              gap={[4, null, 8]}
             >
-              Featured Works
-            </Tag>
-          </Flex>
-          <Grid
-            templateColumns={[`repeat(1, 1fr)`, null, `2fr 1fr`]}
-            gap={[4, null, 8]}
-          >
-            {work.map((project, index) => {
-              const color = ["blue.900", "blue.800", "blue.700", "blue.600"][
-                index
-              ];
-              return (
-                <LinkCard
-                  key={"project" + index}
-                  bgColor={color}
-                  projectName={project.name}
-                  projectDescription={project.description}
-                  projectLink={project.link}
-                  projectLogo={project.logo}
-                />
-              );
-            })}
-          </Grid>
-        </Box>
+              {works.map((project, index) => {
+                const color = ["blue.900", "blue.800", "blue.700", "blue.600"][
+                  index
+                ];
+                return (
+                  <LinkCard
+                    key={"project" + index}
+                    bgColor={color}
+                    projectName={project.name}
+                    projectDescription={project.description}
+                    projectLink={project.link}
+                    projectLogo={project.logo}
+                  />
+                );
+              })}
+            </Grid>
+          </Box>
+        )}
         <Divider />
         <Box my="1em">
           <Flex justifyContent="space-between" alignItems="center" my="1em">

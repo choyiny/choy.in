@@ -1,11 +1,11 @@
 - projects:
-    - name: Reliable Blog
-      description: A simple blog app to demonstrate Google's Site Reliability Engineering principles.
-      link: https://github.com/choyiny/reliable_blog
+    - name: Astral Accessibility
+      description: An open-source accessibility widget written in Angular
+      link: https://github.com/verto-health/astral-accessibility
       logo: ""
-    - name: Mobile Wizard
-      description: Nintendo Switch inspired two player sword (phone) wielding game.
-      link: https://github.com/choyiny/mobile-wizard
+    - name: ngx-turnstile
+      description: Cloudflare Turnstile for Angular
+      link: https://github.com/verto-health/ngx-turnstile
       logo: ""
     - name: Flask API Starter
       description: Boilerplate for building REST APIs in Flask with Blueprints and MongoDB.

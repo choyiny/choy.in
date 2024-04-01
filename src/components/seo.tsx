@@ -22,6 +22,7 @@ export default function Seo({ title, description, children }) {
     >
       <html lang="en-CA" />
       <meta name="description" content={siteMetadata.description} />
+      <meta name="author" content="Cho Yin Yong" />
       <link rel="icon" type="image/svg+xml" href={faviconSrc} />
       <meta property="og:title" content={seo.title} />
       <meta property="og:url" content={href} />

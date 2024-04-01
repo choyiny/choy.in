@@ -19,5 +19,6 @@ export const useWork = () => {
       }
     }
   `);
-  return data.workYaml.work;
+  // return data.workYaml.work;
+  return [];
 };
